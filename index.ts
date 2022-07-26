@@ -74,7 +74,38 @@ const sendEmail = () => {
   });
 };
 
+
+// https://docs.aws.amazon.com/ja_jp/ses/latest/APIReference-V2/API_CreateEmailTemplate.html
+// https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SESV2.html#createEmailTemplate-property
+
+const createEmailTemplate = () =>{
+
+  const data = {
+    TemplateContent: { 
+       Subject: "aaa subject",
+       Text: "asdf asdf "
+    },
+    TemplateName: "template_name_ssss"
+ }
+ ses.createEmailTemplate(data, (err, data) => {
+  if (err){
+      console.log(err, err.stack); // an error occurred
+  } else{
+      console.log(data); // successful response
+  }
+});
+
+
+}
+
+
 app.get("/jjj", (req: express.Request, res: express.Response) => {
   sendEmail();
   res.send("jj");
+});
+
+
+app.get("/kkk", (req: express.Request, res: express.Response) => {
+  createEmailTemplate();
+  res.send("kkk");
 });
