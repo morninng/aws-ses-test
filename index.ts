@@ -59,10 +59,12 @@ const sendEmail = () => {
     },
     Destination: {
     //   ToAddresses: ["yuta.moriyama@gmail.com"],
-      ToAddresses: ["mr_morninng_star_dash@yahoo.co.jp"]
+      BccAddresses : ["mr_morninng_star_dash@yahoo.co.jp" ],
+      CcAddresses: [ "mr_morninng_star_dash@yahoo.co.jp" ],
+      ToAddresses: ["yuta.moriyama@gmail.com"]
     },
     // FromEmailAddress: "mr_morninng_star_dash@yahoo.co.jp",
-    FromEmailAddress: "yuta.moriyama@gmail.com",
+    FromEmailAddress: "mr_morninng_star_dash@yahoo.co.jp",
   };
 
   ses.sendEmail(simpleRequest, (err, data) => {
@@ -109,3 +111,4 @@ app.get("/kkk", (req: express.Request, res: express.Response) => {
   createEmailTemplate();
   res.send("kkk");
 });
+
