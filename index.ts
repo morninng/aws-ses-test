@@ -81,8 +81,8 @@ const sendEmailByTemplate = () => {
   const simpleRequest: SESV2.Types.SendEmailRequest = {
     Content: {
       Template: {
-        TemplateName: "template_name_ssss",
-        TemplateData: "{}"
+        TemplateName: "teffmfffffss_lla",
+        TemplateData: JSON.stringify( {comment: '12345'}) 
       },
     },
     Destination: {
@@ -113,13 +113,14 @@ const sendEmailByTemplate = () => {
 // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SESV2.html#createEmailTemplate-property
 
 const createEmailTemplate = () =>{
-
+  const aaa = 'createEmailTemplate';
+  console.log(` ${aaa}`)
   const data = {
     TemplateContent: { 
-       Subject: "aaa subject",
-       Text: "asdf asdf "
+       Subject: "akkkk",
+       Text: "asdf asdf {{comment}} jjj"
     },
-    TemplateName: "template_name_ssss"
+    TemplateName: "teffmfffffss_lla"
  }
  ses.createEmailTemplate(data, (err, data) => {
   if (err){
@@ -128,6 +129,12 @@ const createEmailTemplate = () =>{
       console.log(data); // successful response
   }
 });
+
+//  https://docs.aws.amazon.com/ja_jp/ses/latest/APIReference-V2/API_Template.html
+// template
+//  https://docs.aws.amazon.com/ja_jp/ses/latest/APIReference-V2/API_EmailTemplateContent.html
+
+// https://docs.aws.amazon.com/ja_jp/ses/latest/dg/send-personalized-email-api.html
 
 
 }
