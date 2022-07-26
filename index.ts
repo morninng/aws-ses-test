@@ -77,6 +77,38 @@ const sendEmail = () => {
 };
 
 
+const sendEmailByTemplate = () => {
+  const simpleRequest: SESV2.Types.SendEmailRequest = {
+    Content: {
+      Template: {
+        TemplateName: "template_name_ssss",
+        TemplateData: "{}"
+      },
+    },
+    Destination: {
+      ToAddresses: ["yuta.moriyama@gmail.com"],
+    },
+
+    FromEmailAddress: "mr_morninng_star_dash@yahoo.co.jp",
+  };
+
+  ses.sendEmail(simpleRequest, (err, data) => {
+    if (err){
+        console.log(err, err.stack); // an error occurred
+    } else{
+        console.log(data); // successful response
+    }
+  });
+};
+
+
+// template data は
+// An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.
+// とあり、変数をいれられるっぽい。
+
+
+
+
 // https://docs.aws.amazon.com/ja_jp/ses/latest/APIReference-V2/API_CreateEmailTemplate.html
 // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SESV2.html#createEmailTemplate-property
 
@@ -112,3 +144,7 @@ app.get("/kkk", (req: express.Request, res: express.Response) => {
   res.send("kkk");
 });
 
+app.get("/lll", (req: express.Request, res: express.Response) => {
+  sendEmailByTemplate();
+  res.send("lll");
+});
