@@ -84,8 +84,7 @@ const sendEmailByTemplate = () => {
 // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SESV2.html#createEmailTemplate-property
 
 const createEmailTemplate = () => {
-  const aaa = "createEmailTemplate";
-  console.log(` ${aaa}`);
+  console.log( "createEmailTemplate");
   const data = {
     TemplateContent: {
       Subject: "akkkk",
