@@ -7,3 +7,15 @@ http://localhost:3000/users
 https://qiita.com/zaburo/items/69726cc42ef774990279
 
 
+
+
+メールテンプレートの使用
+
+複数の送信先指定 (CCやBCCの設定)
+
+メールの一斉送信
+
+メールの定期送信
+
+送信元のメールアドレスを指定できる
+
